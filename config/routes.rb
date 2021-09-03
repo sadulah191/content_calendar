@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :content_items, only: :index
+  resources :social_networks, only: %i[index new create]
+
+  root to: 'content_items#index'
 end

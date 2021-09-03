@@ -10,17 +10,17 @@ RSpec.feature 'SmokeTests', type: :feature do
     # Add social network
     click_on 'Social networks'
     click_on 'Add social network'
-    fill_in 'Network', with: 'Facebook'
-    click_on 'Add Network'
-    expect(page).to have_content('Facebook added')
+    fill_in 'Description', with: "Jon's Facebook"
+    click_on 'Create Social network'
+    expect(page).to have_content("Jon's Facebook added")
 
     # Add content
-    click_on 'Content'
-    click_on 'Add Content'
+    click_on 'Content Items'
+    click_on 'Add Content item'
     fill_in 'Title', with: 'My Title'
     fill_in 'Body', with: 'My body'
-    click_on 'Add Content'
-    expect(page).to have_content('Added My Title')
+    click_on 'Create Content item'
+    expect(page).to have_content('My Title added')
 
     # View Content
     within '#content-items' do
