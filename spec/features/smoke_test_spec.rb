@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.feature 'SmokeTests', type: :feature do
-  scenario 'base content creation' do
+  scenario 'base content creation', js: true do
     user = create :user
 
     sign_in user
     visit root_path
 
     # Add social network
-    click_on 'Social networks'
+    click_on 'Social Networks'
     click_on 'Add social network'
     fill_in 'Description', with: "Jon's Facebook"
     click_on 'Create Social network'
@@ -18,7 +18,7 @@ RSpec.feature 'SmokeTests', type: :feature do
     click_on 'Content Items'
     click_on 'Add Content item'
     fill_in 'Title', with: 'My Title'
-    fill_in 'Body', with: 'My body'
+    fill_in_rich_text_area 'Body', with: 'My body'
     click_on 'Create Content item'
     expect(page).to have_content('My Title added')
 
