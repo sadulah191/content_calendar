@@ -1,3 +1,7 @@
 <h1>Content Items</h1>
 
 <%= link_to 'Add Content item', new_content_item_path %>
+
+<ul id="content-items">
+  <%= render partial: 'content_item', collection: @content_items %>
+</ul>
