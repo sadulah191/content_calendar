@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SocialNetwork < ApplicationRecord
   belongs_to :user
   has_many :publishing_targets, dependent: :destroy

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ContentItemsController < SecureController
   def index
     @content_items = current_user.content_items
