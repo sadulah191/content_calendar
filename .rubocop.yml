@@ -1,0 +1,30 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  Exclude:
+    - bin/**/*
+    - db/**/*
+    - script/**/*
+  NewCops: enable
+
+Metrics/BlockLength:
+  Exclude:
+    - config/**/*
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - spec/**/*
+
+Lint/EmptyBlock:
+  Exclude:
+    - spec/**/*
+
+Lint/MissingSuper:
+  Exclude:
+    - app/components/**/*
+
+Style/Documentation:
+  Enabled: false
