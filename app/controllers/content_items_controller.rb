@@ -1,4 +1,3 @@
-
 class ContentItemsController < SecureController
   def index
     @content_items = current_user.content_items

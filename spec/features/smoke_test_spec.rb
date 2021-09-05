@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature 'SmokeTests', type: :feature do
-  scenario 'base content creation', js: true do
+RSpec.describe 'SmokeTests', type: :feature do
+  it 'base content creation', js: true do
     user = create :user
 
     sign_in user
@@ -41,6 +41,6 @@ RSpec.feature 'SmokeTests', type: :feature do
       click_on 'Delete'
     end
     expect(page).to have_content('My Title deleted')
-    expect(page).to_not have_link('My Title')
+    expect(page).not_to have_link('My Title')
   end
 end

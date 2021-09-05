@@ -1,6 +1,5 @@
 class SocialNetworksController < SecureController
-  def index
-  end
+  def index; end
 
   def new
     @social_network = SocialNetwork.new
