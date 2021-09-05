@@ -13,6 +13,15 @@ AllCops:
 Metrics/BlockLength:
   Exclude:
     - config/**/*
+    - spec/features/**/*
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - spec/features/**/*
+
+RSpec/ExampleLength:
+  Exclude:
+    - spec/features/**/*
 
 Lint/AmbiguousBlockAssociation:
   Exclude:
