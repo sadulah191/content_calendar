@@ -1,4 +1,13 @@
 <h1><%= @content_item.title %></h1>
 
+<%= link_to 'Edit', edit_content_item_path(@content_item) %>
+
+<hr>
+
 <%= @content_item.body %>
 
+<hr>
+
+<% unless @content_item.social_networks.blank? %>
+Publish on: <%= @content_item.social_networks.map(&:description).join(',  ') %>
+<% end %>

@@ -30,10 +30,11 @@ RSpec.feature 'SmokeTests', type: :feature do
 
     # add social network
     click_on 'Edit'
-    check_on 'Facebook'
-    click_on 'Update Content'
-    expect(page).to have_content('Updated My Title')
-    expect(page).to have_content('Facebook')
+    check "Jon's Facebook"
+    click_on 'Update Content item'
+    expect(page).to have_content('My Title updated')
+    click_on 'My Title'
+    expect(page).to have_content("Jon's Facebook")
 
     # delete content
     accept_confirm do

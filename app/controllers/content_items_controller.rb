@@ -10,6 +10,7 @@ class ContentItemsController < SecureController
 
   def new
     @content_item = ContentItem.new
+    @content_item.user = current_user
   end
 
   def create
@@ -23,9 +24,24 @@ class ContentItemsController < SecureController
     end
   end
 
+  def edit
+    @content_item = ContentItem.find(params[:id])
+  end
+
+  def update
+    @content_item = ContentItem.find(params[:id])
+    @content_item.assign_attributes(content_item_params)
+
+    if @content_item.save
+      redirect_to content_items_path, notice: "#{@content_item.title} updated"
+    else
+      render :edit
+    end
+  end
+
   private
 
   def content_item_params
-    params.require(:content_item).permit(:title, :body)
+    params.require(:content_item).permit(:title, :body, social_network_ids: [])
   end
 end
