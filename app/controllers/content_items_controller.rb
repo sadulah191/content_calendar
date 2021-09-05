@@ -39,6 +39,13 @@ class ContentItemsController < SecureController
     end
   end
 
+  def destroy
+    @content_item = current_user.content_items.find(params[:id])
+    @content_item.destroy
+
+    redirect_to content_items_path, notice: "#{@content_item.title} deleted"
+  end
+
   private
 
   def content_item_params

@@ -41,5 +41,6 @@ RSpec.feature 'SmokeTests', type: :feature do
       click_on 'Delete'
     end
     expect(page).to have_content('My Title deleted')
+    expect(page).to_not have_link('My Title')
   end
 end
