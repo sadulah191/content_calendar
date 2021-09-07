@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## System dependencies
 
-Things you may want to cover:
+* ruby 2.7.3, bundler
+* postgresql
+* node, yarn
 
-* Ruby version
+## Setup
 
-* System dependencies
+Run `./bin/setup` to setup the local environment. This will create a default admin account.
 
-* Configuration
+## Running
 
-* Database creation
+Run `rails s` to run the application after setup.
 
-* Database initialization
+## How to run the test suite
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The test suite can be run using `rspec`.
