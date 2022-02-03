@@ -12,8 +12,11 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'sass-rails', '>= 6'
+gem 'simple_calendar', '~> 2.4'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
+
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -22,6 +25,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 5.0'
   gem 'selenium-webdriver'
+  gem 'pry'
 end
 
 group :development do

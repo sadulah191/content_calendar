@@ -12,6 +12,7 @@ class ContentItemsController < SecureController
   def new
     @content_item = ContentItem.new
     @content_item.user = current_user
+    @content_item.publishing_targets.build
   end
 
   def create
@@ -27,6 +28,7 @@ class ContentItemsController < SecureController
 
   def edit
     @content_item = ContentItem.find(params[:id])
+    @content_item.publishing_targets.build
   end
 
   def update
@@ -47,9 +49,14 @@ class ContentItemsController < SecureController
     redirect_to content_items_path, notice: "#{@content_item.title} deleted"
   end
 
+  def calendar
+    @search = ContentItemsSearch.new(params[:search], current_user)
+    @publishing_targets = @search.results
+  end
+
   private
 
   def content_item_params
-    params.require(:content_item).permit(:title, :body, social_network_ids: [])
+    params.require(:content_item).permit(:title, :body, publishing_targets_attributes: %i[social_network_id publishing_date])
   end
 end

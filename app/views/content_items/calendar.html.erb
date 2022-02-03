@@ -1,0 +1,12 @@
+<h1>Content Items</h1>
+
+<%= render partial: 'content_item_filters' %>
+
+<%= month_calendar(events: @publishing_targets) do |date, publishing_targets| %>
+  <p><%=date.day %></p>
+  <% publishing_targets.each do |publishing_target|%>
+      <% content_item = publishing_target.content_item%>
+      <% social_network = publishing_target.social_network%>
+      <p><%= link_to "#{content_item.title} || Network: #{social_network.description}" , content_item %></p>
+  <% end %>
+<% end %>
