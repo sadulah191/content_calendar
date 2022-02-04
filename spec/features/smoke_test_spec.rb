@@ -33,10 +33,29 @@ RSpec.describe 'SmokeTests', type: :feature do
     # add social network
     click_on 'Edit'
     check "Jon's Facebook"
+    fill_in 'Date', with: Time.zone.now
     click_on 'Update Content item'
     expect(page).to have_content('My Title updated')
     click_on 'My Title'
     expect(page).to have_content("Jon's Facebook")
+
+    # View Calender
+    click_on 'Calender'
+    expect(page).to have_content('Content Items')
+    expect(page).to have_content("My Title || Network: Jon's Facebook")
+
+    fill_in 'Search', with: 'My'
+    click_on 'Go'
+    expect(page).to have_content("My Title || Network: Jon's Facebook")
+
+    fill_in 'Search', with: 'some'
+    click_on 'Go'
+    expect(page).not_to have_content("My Title || Network: Jon's Facebook")
+
+    click_on 'Clear'
+    expect(page).to have_content("My Title || Network: Jon's Facebook")
+
+    click_on "My Title || Network: Jon's Facebook"
 
     # delete content
     accept_confirm do

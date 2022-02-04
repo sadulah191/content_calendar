@@ -23,9 +23,9 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
   gem 'factory_bot_rails'
+  gem 'pry'
   gem 'rspec-rails', '~> 5.0'
   gem 'selenium-webdriver'
-  gem 'pry'
 end
 
 group :development do
