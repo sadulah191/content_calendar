@@ -16,7 +16,7 @@ class ContentItemsSearch
   end
 
   def results
-    scope = PublishingTarget.joins(content_item: :rich_text_body).where(content_items: { user_id: current_user.id })
+    scope = PublishingTarget.left_joins(content_item: :rich_text_body).where(content_items: { user_id: current_user.id })
     scope = scope.where('content_items.title LIKE ? OR body ILIKE ?', "%#{search_query}%", "%#{search_query}%") if search_query.present?
     scope = scope.where(publishing_targets: { social_network_id: social_network }) if social_network.present?
     scope
